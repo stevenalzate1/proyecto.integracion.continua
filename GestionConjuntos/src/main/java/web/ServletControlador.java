@@ -135,8 +135,9 @@ public class ServletControlador extends HttpServlet {
         //recuperamos los valores del formulario agregarCliente
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-        String genero = request.getParameter("genero");
-        String correo = request.getParameter("correo");
+        int numero_celular = Integer.parseInt(request.getParameter("numero_celular"));
+        int bloque = Integer.parseInt(request.getParameter("bloque"));
+        int apartamento = Integer.parseInt(request.getParameter("apartamento"));
         /*double saldo = 0;
         String saldoString = request.getParameter("saldo");
         if (saldoString != null && !"".equals(saldoString)) {
@@ -144,7 +145,7 @@ public class ServletControlador extends HttpServlet {
         }*/
 
         //Creamos el objeto de cliente (modelo)
-        Cliente cliente = new Cliente(nombre, apellido, genero, correo);
+        Cliente cliente = new Cliente(nombre, apellido, numero_celular, bloque, apartamento);
 
         //Insertamos en la base de datos
         int registrosModificadss = new ClienteDaoJDBC().insertar(cliente);
@@ -160,8 +161,9 @@ public class ServletControlador extends HttpServlet {
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
-        String genero = request.getParameter("genero");
-        String correo = request.getParameter("correo");
+        int numero_celular = Integer.parseInt(request.getParameter("numero_celular"));
+        int bloque = Integer.parseInt(request.getParameter("bloque"));
+        int apartamento = Integer.parseInt(request.getParameter("apartamento"));
         /*double saldo = 0;
         String saldoString = request.getParameter("saldo");
         if (saldoString != null && !"".equals(saldoString)) {
@@ -169,7 +171,7 @@ public class ServletControlador extends HttpServlet {
         }*/
 
         //Creamos el objeto de cliente (modelo)
-        Cliente cliente = new Cliente(idCliente, nombre, apellido, genero, correo);
+        Cliente cliente = new Cliente(idCliente, nombre, apellido, numero_celular, bloque, apartamento);
 
         //Modificar el objeto en la base de datos
         int registrosModificads = new ClienteDaoJDBC().actualizar(cliente);

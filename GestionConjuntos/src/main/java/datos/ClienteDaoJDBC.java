@@ -11,19 +11,19 @@ import java.util.*;
  */
 public class ClienteDaoJDBC {
 
-    private static final String SQL_SELECT = "SELECT id_cliente, nombre, apellido, genero, correo "
+    private static final String SQL_SELECT = "SELECT id_propiedad, nombre, apellido, numero_celular, bloque, apartamento "
             + " FROM cliente";
 
-    private static final String SQL_SELECT_BY_ID = "SELECT id_cliente, nombre, apellido, genero, correo "
-            + " FROM cliente WHERE id_cliente = ?";
+    private static final String SQL_SELECT_BY_ID = "SELECT id_propiedad, nombre, apellido, numero_celular, bloque, apartamento "
+            + " FROM cliente WHERE id_propiedad = ?";
 
-    private static final String SQL_INSERT = "INSERT INTO cliente (nombre, apellido, genero, correo) "
+    private static final String SQL_INSERT = "INSERT INTO cliente (nombre, apellido, numero_celular, bloque, apartamento) "
             + " VALUES(?, ?, ?, ?)";
 
-    private static final String SQL_UPDATE = "UPDATE cliente SET nombre=?, apellido=?, genero=?, correo=? "
-            + " WHERE id_cliente=?";
+    private static final String SQL_UPDATE = "UPDATE cliente SET nombre=?, apellido=?, numero_celular=?, bloque=?, apartamento=? "
+            + " WHERE id_propiedad=?";
 
-    private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente = ?";
+    private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_propiedad = ?";
 
     public List<Cliente> listar() {
         Connection conn = null;
@@ -36,13 +36,14 @@ public class ClienteDaoJDBC {
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int idCliente = rs.getInt("id_cliente");
+                int idCliente = rs.getInt("id_propiedad");
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
-                String genero = rs.getString("genero");
-                String correo = rs.getString("correo");
+                int numero_celular = rs.getInt("numero_celular");
+                int bloque = rs.getInt("bloque");
+                int apartamento = rs.getInt("apartamento");
 
-                cliente = new Cliente(idCliente, nombre, apellido, genero, correo);
+                cliente = new Cliente(idCliente, nombre, apellido, numero_celular, bloque, apartamento);
                 clientes.add(cliente);
             }
         } catch (SQLException ex) {
@@ -68,14 +69,16 @@ public class ClienteDaoJDBC {
 
             String nombre = rs.getString("nombre");
             String apellido = rs.getString("apellido");
-            String genero = rs.getString("genero");
-            String correo = rs.getString("correo");
+            int numero_celular = rs.getInt("numero_celular");
+            int bloque = rs.getInt("bloque");
+            int apartamento = rs.getInt("apartamento");
 
             cliente.setNombre(nombre);
             cliente.setApellido(apellido);
-            cliente.setGenero(genero);
-            cliente.setCorreo(correo);
-
+            cliente.setNumero_celular(numero_celular);
+            cliente.setBloque(bloque);
+            cliente.setApartamento(apartamento);
+            
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {
@@ -95,8 +98,9 @@ public class ClienteDaoJDBC {
             stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
-            stmt.setString(3, cliente.getGenero());
-            stmt.setString(4, cliente.getCorreo());
+            stmt.setInt(3, cliente.getNumero_celular());
+            stmt.setInt(4, cliente.getBloque());
+            stmt.setInt(5, cliente.getApartamento());
 
             rows = stmt.executeUpdate();
 
@@ -118,9 +122,10 @@ public class ClienteDaoJDBC {
             stmt = conn.prepareStatement(SQL_UPDATE);
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
-            stmt.setString(3, cliente.getGenero());
-            stmt.setString(4, cliente.getCorreo());
-            stmt.setInt(5, cliente.getIdCliente());
+            stmt.setInt(3, cliente.getNumero_celular());
+            stmt.setInt(4, cliente.getBloque());
+            stmt.setInt(5, cliente.getApartamento());
+            stmt.setInt(6, cliente.getIdCliente());
 
             rows = stmt.executeUpdate();
 
