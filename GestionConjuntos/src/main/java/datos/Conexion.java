@@ -10,7 +10,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
  */
 public class Conexion {
 
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/control_salud?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3308/gestion_conjunto?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "12345";
     private static BasicDataSource dataSource;
