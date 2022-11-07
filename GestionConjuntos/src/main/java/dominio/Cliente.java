@@ -3,36 +3,44 @@ package dominio;
 /**
  *
  * @author steven
+ * Clase encargada de instanciar las variables
  */
 public class Cliente {
     
     private int idCliente;
     private String nombre;
     private String apellido;
-    private String genero;
-    private String correo;
+    private int numero_celular;
+    private int bloque;
+    private int apartamento;
 
     public Cliente() {
+    }
+
+    /*
+    public Cliente(int idCliente) {
+        this.idCliente = idCliente;
+    }*/
+
+    public Cliente(int idCliente, String nombre, String apellido, int numero_celular, int bloque, int apartamento) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.numero_celular = numero_celular;
+        this.bloque = bloque;
+        this.apartamento = apartamento;
     }
 
     public Cliente(int idCliente) {
         this.idCliente = idCliente;
     }
 
-    public Cliente(String nombre, String apellido, String genero, String correo) {
-        this.nombre = nombre;
+    public Cliente(String nombre, String apellido, int numero_celular, int bloque, int apartamento) {
         this.apellido = apellido;
-        this.genero = genero;
-        this.correo = correo;
+        this.numero_celular = numero_celular;
+        this.bloque = bloque;
+        this.apartamento = apartamento;
     }
 
-    public Cliente(int idCliente, String nombre, String apellido, String genero, String correo) {
-        this.idCliente = idCliente;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.genero = genero;
-        this.correo = correo;
-    }
 
     public int getIdCliente() {
         return idCliente;
@@ -58,24 +66,33 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getGenero() {
-        return genero;
+    public int getNumero_celular() {
+        return numero_celular;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setNumero_celular(int numero_celular) {
+        this.numero_celular = numero_celular;
     }
 
-    public String getCorreo() {
-        return correo;
+    public int getBloque() {
+        return bloque;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setBloque(int bloque) {
+        this.bloque = bloque;
     }
+
+    public int getApartamento() {
+        return apartamento;
+    }
+
+    public void setApartamento(int apartamento) {
+        this.apartamento = apartamento;
+    }
+
     @Override
     public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", genero=" + genero + ", correo=" + correo + '}';
+        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", numero_celular=" + numero_celular + ", bloque=" + bloque + ", apartamento="+ apartamento +'}';
     }
      
     
