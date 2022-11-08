@@ -16,9 +16,9 @@
                                 <tr>
                                     <th>N°</th>
                                     <th>Nombres y Apellidos</th>
-                                    <th>Genero</th>
-                                    <th>Correo</th>
-                                    <th>Acciones</th>
+                                    <th>Número celular</th>
+                                    <th>bloque</th>
+                                    <th>apartamento</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
@@ -27,8 +27,9 @@
                                     <tr>
                                         <td>${status.count}</td>
                                         <td>${cliente.nombre} ${cliente.apellido}</td>
-                                        <td>${cliente.genero}</td>
-                                        <td>${cliente.correo}</td>
+                                        <td>${cliente.numero_celular}</td>
+                                        <td>${cliente.bloque}</td>
+                                        <td>${cliente.apartamento}</td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idCliente=${cliente.idCliente}"
                                                class="btn btn-secondary">

@@ -21,12 +21,16 @@
                         <input type="text" class="form-control" name="apellido" required>
                     </div>
                     <div class="form-group">
-                        <label for="genero">Genero</label>
-                        <input type="text" class="form-control" name="genero" required>
+                        <label for="numero_celular">Número Celular</label>
+                        <input type="number" class="form-control" name="numero_celular" required>
                     </div>
                     <div class="form-group">
-                        <label for="correo">Correo</label>
-                        <input type="email" class="form-control" name="correo" required>
+                        <label for="bloque">Bloque</label>
+                        <input type="number" class="form-control" name="bloque" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apartamento">Apartamento</label>
+                        <input type="number" class="form-control" name="apartamento" required>
                     </div>
                 </div>
                 <div class="modal-footer">
